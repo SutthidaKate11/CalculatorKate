@@ -1,16 +1,22 @@
 package com.example.assignment05calculatorv2_sutthida
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+    var newopera = true
+    var oldnum = ""
+    var op = "+"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var str: String
         var temp: String
+
 
         n1.setOnClickListener {
             temp = "1"
@@ -117,5 +123,43 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
     }
+
+    fun operater(view: View) {
+    newopera = true
+        oldnum = tp.text.toString()
+        var select : Button = view as Button
+        when(select.id){
+            multiply.id -> {op ="*"}
+            plus.id -> {op ="+"}
+            minus.id -> {op ="-"}
+            divide.id -> {op ="/"}
+        }
+    }
+
+    fun equal(view: View) {
+        var newnum :String = tp.text.toString()
+        var result = 0.00
+        when(op){
+            "+" -> {result = oldnum.toDouble() + newnum.toDouble()}
+            "*" -> {result = oldnum.toDouble() * newnum.toDouble()}
+            "/" -> {result = oldnum.toDouble() / newnum.toDouble()}
+            "-" -> {result = oldnum.toDouble() - newnum.toDouble()}
+        }
+        tp.setText(result.toString())
+    }
+
+    fun deleteopera(view: View) {
+        tp.setText("0")
+        newopera = true
+    }
+
+    fun percent(view: View) {
+        var no: Double = tp.text.toString().toDouble()/100
+        tp.setText(no.toString())
+        newopera = true
+    }
+
+
 }

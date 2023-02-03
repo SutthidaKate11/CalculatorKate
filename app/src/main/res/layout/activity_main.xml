@@ -39,6 +39,7 @@
             android:layout_height="118dp"
             android:layout_weight="1"
             android:text="Del"
+            android:onClick="deleteopera"
             android:textSize="24sp" />
 
         <Button
@@ -47,6 +48,7 @@
             android:layout_height="118dp"
             android:layout_weight="1"
             android:text="%"
+            android:onClick="percent"
             android:textSize="24sp" />
 
         <Button
@@ -169,6 +171,7 @@
             android:layout_height="121dp"
             android:layout_weight="1"
             android:text="+"
+            android:onClick="operater"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -214,6 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="="
+                android:onClick="equal"
                 android:textSize="24sp" />
         </LinearLayout>
     </LinearLayout>
